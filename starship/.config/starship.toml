@@ -1,0 +1,38 @@
+format = """
+$directory\
+$python\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$cmd_duration\
+$character"""
+
+add_newline = false
+
+[character]
+success_symbol = '[\$](green)'
+error_symbol = '[\$](red)'
+
+[directory]
+truncation_length = 5
+truncate_to_repo = true
+read_only = '󰉐'
+style = 'blue'
+repo_root_style = 'blue bold'
+fish_style_pwd_dir_length = 3
+
+[git_branch]
+format = '[$branch(:$remote_branch)]($style)'
+style = 'green'
+
+[git_commit]
+style = 'cyan'
+
+[git_status]
+style = 'yellow'
+
+[python]
+format = '[󰌠 (\($virtualenv\) )]($style)'
+version_format = '${raw}'
+style = 'blue'
