@@ -33,6 +33,6 @@ style = 'cyan'
 style = 'yellow'
 
 [python]
-format = '[󰌠 (\($virtualenv\) )]($style)'
+format = '[(\($virtualenv\) )]($style)'
 version_format = '${raw}'
 style = 'blue'
