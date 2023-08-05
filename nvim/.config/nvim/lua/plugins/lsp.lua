@@ -29,13 +29,16 @@ return {
           { name = 'buffer', keyword_length = 5 },
         }),
         formatting = {
-          format = require('lspkind').cmp_format({ with_text = true, menu = ({
-            buffer = "[buf]",
-            path = "[path]",
-            nvim_lsp = "[lsp]",
-            nvim_lua = "[lua]",
-            luasnip = "[snip]",
-          }) }),
+          format = require('lspkind').cmp_format({
+            with_text = true,
+            menu = ({
+              buffer = "[buf]",
+              path = "[path]",
+              nvim_lsp = "[lsp]",
+              nvim_lua = "[lua]",
+              luasnip = "[snip]",
+            })
+          }),
         },
         preselect = false,
       }
@@ -67,18 +70,18 @@ return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
     dependencies = {
-      {'neovim/nvim-lspconfig'},
+      { 'neovim/nvim-lspconfig' },
       {
         'williamboman/mason.nvim',
         build = function()
           pcall(vim.cmd, 'MasonUpdate')
         end,
       },
-      {'williamboman/mason-lspconfig.nvim'},
+      { 'williamboman/mason-lspconfig.nvim' },
 
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'L3MON4D3/LuaSnip'},
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'L3MON4D3/LuaSnip' },
     }
   },
   {

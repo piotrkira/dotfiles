@@ -1,12 +1,13 @@
 return {
-  { 'nvim-telescope/telescope.nvim',
+  {
+    'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
     },
     keys = {
-      { '<C-f>', '<cmd>Telescope find_files<cr>' },
-      { '<C-g>', '<cmd>Telescope live_grep<cr>' },
+      { '<C-f>',      '<cmd>Telescope find_files<cr>' },
+      { '<C-g>',      '<cmd>Telescope live_grep<cr>' },
       { '<leader>fw', '<cmd>Telescope grep_string<cr>' },
       { '<leader>fq', '<cmd>Telescope quickfix<cr>' },
     },
