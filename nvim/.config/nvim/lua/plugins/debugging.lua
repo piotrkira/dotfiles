@@ -29,7 +29,7 @@ return {
         { '<leader>b',  function() dap.toggle_breakpoint() end },
         { '<leader>cb', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end },
         { '<leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
-        { '<leader>dc', function() dap.continue() end },
+        { '<leader>rd', function() dap.continue() end },
         { '<Down>',     function() dap.step_over() end },
         { '<Right>',    function() dap.step_into() end },
         { '<Up>',       function() dap.step_back() end },
@@ -49,6 +49,7 @@ return {
     end,
     dependencies = {
       'mfussenegger/nvim-dap-python',
+      'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
     }
   },
@@ -63,6 +64,16 @@ return {
     end,
     config = function()
       require("dapui").setup()
+      local dap, dapui = require('dap'), require('dapui')
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open({})
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close({})
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close({})
+      end
     end,
   },
   {
