@@ -1,0 +1,51 @@
+#!/bin/bash
+
+if [ -f "/etc/arch-release" ]; then
+  tmuxp_sessions=$(fd . ~/.local/share/tmux-sessions | xargs -n 1 basename | cut -f1 -d".")
+  projects=$(fd -d 1 --type d . ~/dev | xargs -n 1 basename)
+else
+  projects=$(fdfind -d 1 --type d . ~/dev | xargs -n 1 basename)
+  tmuxp_sessions=$(fdfind . ~/.local/share/tmux-sessions | xargs -n 1 basename | cut -f1 -d".")
+fi
+
+available_sessions=$(echo -e "$tmuxp_sessions\n$projects" | sort | uniq)
+
+if pgrep tmux >/dev/null 2>&1
+then
+  tmux_sessions=($(tmux ls | cut -f1 -d":"))
+  #| xargs -I {} echo -e "\033[0;32m\033[0m $(basename {})"
+  for duplicate in "${tmux_sessions[@]}"; do
+    available_sessions=("${available_sessions[@]/$duplicate}")
+    available_sessions+=("\n\033[0;32m\033[0m $(basename "$duplicate")")
+  done
+fi
+
+session_name=$(echo -e "${available_sessions[@]}" | awk NF | fzf-tmux -p 50%,80% --ansi --tac | awk '{print $NF}')
+
+if [[ -z $session_name ]]; then
+    exit 0
+fi
+
+# Skip if session is already attached
+if [[ -n $TMUX ]]; then
+  current_session=$(tmux display-message -p "#S")
+  if [ $current_session = $session_name ]; then
+    exit 0
+  fi
+fi
+
+# Switch to tmux session if is already created
+if ! tmux has-session -t=$session_name 2> /dev/null; then
+  tmuxp_session_path="${HOME}/.local/share/tmux-sessions/${session_name}.yaml"
+  if test -f "$tmuxp_session_path"; then
+    tmuxp load -d -y "$tmuxp_session_path" > /dev/null
+  else
+    tmux new-session -s "$session_name" -c "${HOME}/dev/${session_name}" -d
+  fi
+fi
+
+if [[ -n $TMUX ]]; then
+  tmux switch -t "$session_name"
+else
+  tmux attach -t "$session_name"
+fi
