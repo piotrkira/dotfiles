@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f "/etc/arch-release" ]; then
+if [ -f "/usr/bin/fd" ]; then
   tmuxp_sessions=$(fd . ~/.local/share/tmux-sessions | xargs -n 1 basename | cut -f1 -d".")
   projects=$(fd -d 1 --type d . ~/dev | xargs -n 1 basename)
 else
