@@ -26,20 +26,19 @@ return {
   {
     'ruifm/gitlinker.nvim',
     keys = function()
-      local linker = require("gitlinker")
       return {
         { '<leader>ogl',
-                           function() linker.get_buf_range_url("n",
+                           function() require("gitlinker").get_buf_range_url("n",
               { action_callback = require "gitlinker.actions".open_in_browser }) end },
         { '<leader>ogl',
-                           function() linker.get_buf_range_url("v",
+                           function() require("gitlinker").get_buf_range_url("v",
               { action_callback = require "gitlinker.actions".open_in_browser }) end,                                                    mode =
         "v" },
         { '<leader>cgl',
-                           function() linker.get_buf_range_url("n",
+                           function() require("gitlinker").get_buf_range_url("n",
               { action_callback = require "gitlinker.actions".copy_to_clipboard }) end },
         { '<leader>cgl',
-                           function() linker.get_buf_range_url("v",
+                           function() require("gitlinker").get_buf_range_url("v",
               { action_callback = require "gitlinker.actions".copy_to_clipboard }) end,                                                  mode =
         "v" },
       }

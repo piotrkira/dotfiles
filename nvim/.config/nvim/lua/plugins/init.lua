@@ -9,13 +9,12 @@ return {
   {
     'ThePrimeagen/harpoon',
     keys = function()
-      local ui = require("harpoon.ui")
       return {
         { ',,', function() require('harpoon.mark').add_file() end },
-        { ',w', function() ui.toggle_quick_menu() end },
-        { ',a', function() ui.nav_file(1) end },
-        { ',s', function() ui.nav_file(2) end },
-        { ',d', function() ui.nav_file(3) end },
+        { ',w', function() require("harpoon.ui").toggle_quick_menu() end },
+        { ',a', function() require("harpoon.ui").nav_file(1) end },
+        { ',s', function() require("harpoon.ui").nav_file(2) end },
+        { ',d', function() require("harpoon.ui").nav_file(3) end },
       }
     end,
   },
@@ -62,12 +61,11 @@ return {
   {
     'ThePrimeagen/refactoring.nvim',
     keys = function()
-      local ref = require("refactoring")
       return {
-        { '<leader>re', function() ref.refactor('Extract Function') end },
-        { '<leader>rf', function() ref.refactor('Extract Function To File') end },
-        { '<leader>rv', function() ref.refactor('Extract Variable') end },
-        { '<leader>ri', function() ref.refactor('Inline Variable') end },
+        { '<leader>re', function() require("refactoring").refactor('Extract Function') end },
+        { '<leader>rf', function() require("refactoring").refactor('Extract Function To File') end },
+        { '<leader>rv', function() require("refactoring").refactor('Extract Variable') end },
+        { '<leader>ri', function() require("refactoring").refactor('Inline Variable') end },
       }
     end,
   },

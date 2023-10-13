@@ -9,11 +9,10 @@ return {
       }
     end,
     keys = function()
-      local neotest = require("neotest")
       return {
-        { '<leader>rt',  function() neotest.run.run() end },
-        { '<leader>rat', function() neotest.run.run(vim.fn.expand("%")) end },
-        { '<leader>dt',  function() neotest.run.run({ strategy = "dap" }) end },
+        { '<leader>rt',  function() require("neotest").run.run() end },
+        { '<leader>rat', function() require("neotest").run.run(vim.fn.expand("%")) end },
+        { '<leader>dt',  function() require("neotest").run.run({ strategy = "dap" }) end },
       }
     end,
     dependencies = {
@@ -24,21 +23,20 @@ return {
   {
     'mfussenegger/nvim-dap',
     keys = function()
-      local dap = require("dap")
       return {
-        { '<leader>b',  function() dap.toggle_breakpoint() end },
-        { '<leader>cb', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end },
-        { '<leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
-        { '<leader>rd', function() dap.continue() end },
-        { '<Down>',     function() dap.step_over() end },
-        { '<Right>',    function() dap.step_into() end },
-        { '<Up>',       function() dap.step_back() end },
-        { '<Left>',     function() dap.step_out() end },
-        { '<leader>dr', function() dap.repl.open() end },
-        { '<leader>rc', function() dap.run_to_cursor() end },
-        { '<leader>gt', function() dap.goto_() end },
-        { '<leader>lb', function() dap.list_breakpoints() end },
-        { '<leader>rl', function() dap.run_last() end },
+        { '<leader>b',  function() require("dap").toggle_breakpoint() end },
+        { '<leader>cb', function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end },
+        { '<leader>lp', function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
+        { '<leader>rd', function() require("dap").continue() end },
+        { '<Down>',     function() require("dap").step_over() end },
+        { '<Right>',    function() require("dap").step_into() end },
+        { '<Up>',       function() require("dap").step_back() end },
+        { '<Left>',     function() require("dap").step_out() end },
+        { '<leader>dr', function() require("dap").repl.open() end },
+        { '<leader>rc', function() require("dap").run_to_cursor() end },
+        { '<leader>gt', function() require("dap").goto_() end },
+        { '<leader>lb', function() require("dap").list_breakpoints() end },
+        { '<leader>rl', function() require("dap").run_last() end },
       }
     end,
     init = function()
@@ -85,10 +83,9 @@ return {
       } },
     },
     keys = function()
-      local dapui = require("dapui")
       return {
-        { '<leader>dw', function() dapui.toggle() end },
-        { '<leader>v',  function() dapui.eval() end },
+        { '<leader>dw', function() require("dapui").toggle() end },
+        { '<leader>v',  function() require("dapui").eval() end },
       }
     end,
     config = function(_, opts)
