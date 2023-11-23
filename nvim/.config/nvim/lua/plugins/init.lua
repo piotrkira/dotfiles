@@ -48,12 +48,15 @@ return {
   {
     'j-hui/fidget.nvim',
     opts = {
-      text = {
-        spinner = "dots",
-        done = ""
+      progress = {
+        display = {
+          done_icon = ""
+        }
       },
-      window = {
-        blend = 0,
+      notification = {
+        window = {
+          winblend = 0,
+        }
       }
     }
   },
