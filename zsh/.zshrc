@@ -15,6 +15,8 @@ source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/fzf/key-bindings.zsh
 
+source ~/.config/zsh/widgets.zsh
+
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 
