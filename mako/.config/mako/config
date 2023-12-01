@@ -1,0 +1,10 @@
+font=Noto Sans Mono 14
+background-color=#2b3339
+text-color=#d3c6aa
+border-size=3
+border-color=#a7c080
+padding=10
+ignore-timeout=1
+default-timeout=2500
+
+max-history=20
