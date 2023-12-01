@@ -1,0 +1,32 @@
+window#waybar {
+    background: #2b3339;
+    color: #d3c6aa;
+    font-family: Noto Sans Mono;
+}
+
+button {
+  border: none;
+  border-radius: 0;
+}
+
+#workspaces button {
+  border: none;
+  color: #d3c6aa;
+  transition-duration: 0;
+  box-shadow: none;
+}
+
+#workspaces button.focused {
+  background: #a7c080;
+  color: #2b3339;
+}
+
+#workspaces button:hover {
+  border: none;
+  background: #7fbbb3;
+}
+
+.modules-right {
+  background: #a7c080;
+  color: #2b3339;
+}
