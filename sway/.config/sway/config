@@ -20,17 +20,14 @@ for_window [class="^.*"] border pixel 3
 client.focused "#a7c080" "#a7c080" "#a7c080" "#a7c080" "#a7c080"
 client.unfocused "#d3c6aa33" "#d3c6aa33" "#d3c6aa33" "#d3c6aa33" "#d3c6aa33"
 
-output HDMI-A-1 bg ~/.bg fill
-
-output HDMI-A-1 resolution 3440x1440 position 3440,0
-output eDP-1 disable
-
-workspace 1 output HDMI-A-1
+output * bg ~/.bg fill
 
 exec swayidle -w \
         timeout 600 "$lock_command -f" \
         timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
         before-sleep "$lock_command -f"
+
+exec kanshi
 
 input type:keyboard {
   xkb_layout pl

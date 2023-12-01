@@ -1,0 +1,9 @@
+profile {
+  output HDMI-A-1 mode 3440x1440 position 3440,0
+  output eDP-1 disable
+  exec swaymsg workspace 1, move workspace to HDMI-A-1
+}
+
+profile {
+  output eDP-1 enable
+}
