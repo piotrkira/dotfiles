@@ -40,8 +40,8 @@
         "warning": 30,
         "critical": 15
     },
-    "format": "<span font='18' rise='-1800' size='large'>{icon}</span> {capacity}",
-    "format-icons": ["", "", "", "", ""],
+    "format": "{icon}{capacity}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "max-length": 25
   },
   "memory": {
