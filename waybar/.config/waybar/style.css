@@ -1,7 +1,7 @@
 window#waybar {
     background: #2b3339;
     color: #d3c6aa;
-    font-family: Noto Sans Mono;
+    font-family: Hack Nerd Font Mono;
 }
 
 button {
@@ -29,4 +29,5 @@ button {
 .modules-right {
   background: #a7c080;
   color: #2b3339;
+  padding: 0 10px;
 }
