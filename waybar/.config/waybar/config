@@ -45,7 +45,8 @@
     "max-length": 25
   },
   "memory": {
-    "format": "{used}GB"
+    "format": "{used}GB",
+    "interval": 5
   },
   "custom/newsboat": {
     "format": "󰑫{}",
