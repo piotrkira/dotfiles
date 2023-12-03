@@ -11,11 +11,16 @@
     "sway/window"
   ],
   "modules-right": [
+    "backlight",
     "pulseaudio",
     "battery",
     "memory",
     "clock",
   ],
+  "backlight": {
+    "format": "{icon}{percent}",
+    "format-icons": ["󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"]
+  },
   "pulseaudio": {
     "format": "<span font='18' rise='-1800' size='large'>{icon}</span> {volume}",
     "format-bluetooth": "{volume}% {icon}",
