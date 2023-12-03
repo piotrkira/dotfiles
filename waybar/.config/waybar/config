@@ -11,6 +11,7 @@
     "sway/window"
   ],
   "modules-right": [
+    "custom/newsboat",
     "backlight",
     "pulseaudio",
     "battery",
@@ -44,5 +45,11 @@
   },
   "memory": {
     "format": "{used}GB"
+  },
+  "custom/newsboat": {
+    "format": "󰑫{}",
+    "interval": 3600,
+    "exec": "newsboat -x reload print-unread | cut -d ' ' -f1",
+    "exec-if": "which newsboat"
   }
 }
