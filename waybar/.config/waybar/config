@@ -24,13 +24,10 @@
     "format-icons": ["󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"]
   },
   "pulseaudio": {
-    "format": "<span font='18' rise='-1800' size='large'>{icon}</span> {volume}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
-    "format-muted": "<span font='18' rise='-1800' size='large'></span>",
+    "format": "{icon}{volume}",
+    "format-muted": "󰝟{volume}",
     "format-icons": {
-        "headphone": ["", ""],
-        "default": ["", ""]
+        "default": ["󰕿", "󰖀", "󰕾"]
     },
     "scroll-step": 1,
   },
