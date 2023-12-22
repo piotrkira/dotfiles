@@ -139,7 +139,7 @@ bindsym $mod+Shift+Comma exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+Shift+Period exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $mod+Shift+m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png
+bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png; exec wl-paste > "$HOME/media/ss/ss$(date +%Y%m%d%H%M_%3N).png"
 
 bindsym $mod+Shift+b exec bookmark-menu
 
