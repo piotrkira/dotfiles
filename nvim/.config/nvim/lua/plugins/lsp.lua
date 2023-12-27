@@ -91,11 +91,23 @@ return {
       return {
         sources = {
           nls.builtins.diagnostics.mypy,
-          nls.builtins.formatting.black,
-          nls.builtins.formatting.isort,
           nls.builtins.diagnostics.ruff,
         }
       }
     end,
+  },
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        htmldjango = { "djlint" },
+        json = { "jq" },
+        python = { "isort", "black" },
+      },
+    },
+    keys = {
+      { "<leader>fc", function() require("conform").format({ lsp_fallback = true, async = true }) end },
+      { "<leader>fc", function() require("conform").format({ lsp_fallback = true, async = true }) end, mode = "v" },
+    }
   },
 }
