@@ -8,15 +8,19 @@ return {
   },
   {
     'ThePrimeagen/harpoon',
+    branch = "harpoon2",
     keys = function()
       return {
-        { ',,', function() require('harpoon.mark').add_file() end },
-        { ',w', function() require("harpoon.ui").toggle_quick_menu() end },
-        { ',a', function() require("harpoon.ui").nav_file(1) end },
-        { ',s', function() require("harpoon.ui").nav_file(2) end },
-        { ',d', function() require("harpoon.ui").nav_file(3) end },
+        { ',,', function() require("harpoon"):list():append() end },
+        { ',w', function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end },
+        { ',a', function() require("harpoon"):list():select(1) end },
+        { ',s', function() require("harpoon"):list():select(2) end },
+        { ',d', function() require("harpoon"):list():select(3) end },
       }
     end,
+    config = function ()
+      require("harpoon"):setup()
+    end
   },
   {
     'ggandor/leap.nvim',
