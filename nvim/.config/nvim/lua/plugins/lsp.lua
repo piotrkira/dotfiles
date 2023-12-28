@@ -85,18 +85,6 @@ return {
     }
   },
   {
-    'jose-elias-alvarez/null-ls.nvim',
-    opts = function()
-      nls = require('null-ls')
-      return {
-        sources = {
-          nls.builtins.diagnostics.mypy,
-          nls.builtins.diagnostics.ruff,
-        }
-      }
-    end,
-  },
-  {
     'stevearc/conform.nvim',
     opts = {
       formatters_by_ft = {
@@ -109,5 +97,21 @@ return {
       { "<leader>fc", function() require("conform").format({ lsp_fallback = true, async = true }) end },
       { "<leader>fc", function() require("conform").format({ lsp_fallback = true, async = true }) end, mode = "v" },
     }
+  },
+  {
+    'mfussenegger/nvim-lint',
+    config = function()
+      local lint = require("lint")
+      lint.linters_by_ft = {
+        markdown = { "languagetool" },
+        sh = { "shellcheck" },
+      }
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+        callback = function()
+          lint.try_lint()
+          lint.try_lint("codespell")
+        end,
+      })
+    end
   },
 }
