@@ -134,6 +134,7 @@ bindsym $mod+s mode "system"
 bindsym $mod+m exec ls ~/.local/bin/ | bemenu -i | xargs swaymsg exec
 
 bindsym $mod+q exec record-screen
+bindsym $mod+Shift+q exec record-cut-screen
 
 bindsym $mod+Shift+Comma exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+Shift+Period exec pactl set-sink-volume @DEFAULT_SINK@ +5%
