@@ -92,6 +92,11 @@ return {
         json = { "jq" },
         python = { "isort", "black" },
       },
+      formatters = {
+        black = {
+          prepend_args = {"--line-length", "120"}
+        }
+      },
     },
     keys = {
       { "<leader>fc", function() require("conform").format({ lsp_fallback = true, async = true }) end },
