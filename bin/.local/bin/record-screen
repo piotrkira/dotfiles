@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if pgrep -x "wf-recorder" >/dev/null
+then
+  pkill --signal SIGINT wf-recorder
+  notify-send "Recording finished"
+else
+  wf-recorder -f "$HOME/media/rec/rec-$(date +'%y-%m-%d-%H-%M-%3N').mkv"
+fi
