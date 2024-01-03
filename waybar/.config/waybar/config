@@ -12,6 +12,7 @@
   ],
   "modules-right": [
     "mpd",
+    "custom/rec",
     "custom/newsboat",
     "backlight",
     "pulseaudio",
@@ -50,5 +51,10 @@
     "interval": 3600,
     "exec": "newsboat -x reload print-unread | cut -d ' ' -f1",
     "exec-if": "which newsboat"
-  }
+  },
+  "custom/rec": {
+    "format": "<span color='#fb4934'>󰑊</span> {}",
+    "exec": "pgrep -x wf-recorder >/dev/null && ps -p $(pidof wf-recorder) -o etime | tail -1 | awk '{$1=$1};1'",
+    "interval": 1
+  },
 }
