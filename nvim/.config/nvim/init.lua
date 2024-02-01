@@ -15,7 +15,10 @@ require("config.options")
 require("config.keys")
 require("config.autocmd")
 
-require("lazy").setup("plugins")
+require("lazy").setup({
+  spec = "plugins",
+  change_detection = { notify = false },
+})
 
 vim.diagnostic.config({
   float = {
