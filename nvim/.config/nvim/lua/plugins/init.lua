@@ -23,15 +23,6 @@ return {
     end
   },
   {
-    'ggandor/leap.nvim',
-    config = function()
-      local leap = require("leap")
-      leap.add_default_mappings()
-      leap.opts.safe_labels = {}
-    end,
-  },
-
-  {
     'simrat39/symbols-outline.nvim',
     keys = {
       { '<leader>so', '<cmd>:SymbolsOutline<cr>' }
