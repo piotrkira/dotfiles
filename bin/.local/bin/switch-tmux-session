@@ -20,7 +20,11 @@ then
   done
 fi
 
-session_name=$(echo -e "${available_sessions[@]}" | awk NF | fzf-tmux -p 50%,80% --ansi --tac | awk '{print $NF}')
+if [[ -z $1 ]]; then
+  session_name=$(echo -e "${available_sessions[@]}" | awk NF | fzf-tmux -p 50%,80% --ansi --tac | awk '{print $NF}')
+else
+  session_name=$1
+fi
 
 if [[ -z $session_name ]]; then
     exit 0
@@ -34,6 +38,8 @@ if [[ -n $TMUX ]]; then
   fi
 fi
 
+echo "$(tail -1 /var/tmp/last_tmux_session)" > /var/tmp/last_tmux_session
+echo "$session_name" >> /var/tmp/last_tmux_session
 # Switch to tmux session if is already created
 if ! tmux has-session -t=$session_name 2> /dev/null; then
   tmuxp_session_path="${HOME}/.local/share/tmux-sessions/${session_name}.yaml"

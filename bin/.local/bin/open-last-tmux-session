@@ -1,0 +1,5 @@
+#!/bin/bash
+
+read -r session_name</var/tmp/last_tmux_session
+switch-tmux-session "$session_name"
+
