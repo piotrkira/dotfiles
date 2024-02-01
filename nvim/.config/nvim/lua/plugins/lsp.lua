@@ -65,24 +65,18 @@ return {
     'williamboman/mason.nvim',
     build = ":MasonUpdate",
   },
-  { 'williamboman/mason-lspconfig.nvim' },
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    'williamboman/mason-lspconfig.nvim',
     dependencies = {
-      { 'neovim/nvim-lspconfig' },
-      {
-        'williamboman/mason.nvim',
-        build = function()
-          pcall(vim.cmd, 'MasonUpdate')
+      'williamboman/mason.nvim',
+    },
+    config = function()
+      require("mason-lspconfig").setup_handlers {
+        function(server_name) -- default handler (optional)
+          require("lspconfig")[server_name].setup {}
         end,
-      },
-      { 'williamboman/mason-lspconfig.nvim' },
-
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'L3MON4D3/LuaSnip' },
-    }
+      }
+    end
   },
   {
     'stevearc/conform.nvim',
