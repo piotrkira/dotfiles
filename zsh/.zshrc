@@ -12,7 +12,8 @@ alias ssh='TERM=screen-256color ssh'
 alias tmux='TERM=screen-256color tmux'
 
 source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+(( $+NO_ZSH_SUGGESTIONS )) ||
+  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/fzf/key-bindings.zsh
 
 source ~/.config/zsh/widgets.zsh
