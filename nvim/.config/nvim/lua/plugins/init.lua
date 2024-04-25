@@ -32,8 +32,6 @@ return {
     end,
   },
 
-  { 'b3nj5m1n/kommentary' },
-
   { 'kylechui/nvim-surround',
     config = function ()
       require("nvim-surround").setup({})
@@ -67,4 +65,15 @@ return {
       }
     end,
   },
+  {
+    'ThePrimeagen/vim-apm',
+    keys = function()
+      return {
+        { '<leader>apm', function() require("vim-apm"):toggle_monitor() end },
+      }
+    end
+  },
+  {
+    'github/copilot.vim'
+  }
 }
