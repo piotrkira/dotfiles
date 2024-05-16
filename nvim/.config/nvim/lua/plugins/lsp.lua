@@ -12,9 +12,9 @@ return {
           end,
         },
         mapping = {
-          ['<CR>'] = cmp.mapping.confirm({
+          ['<C-y>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Insert,
-            select = false,
+            select = true,
           }),
           ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
           ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
@@ -40,7 +40,6 @@ return {
             })
           }),
         },
-        preselect = false,
       }
     end,
   },
