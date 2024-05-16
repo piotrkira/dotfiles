@@ -5,5 +5,11 @@ profile {
 }
 
 profile {
+  output DP-6 mode 3440x1440@60Hz position 3440,0
+  output eDP-1 disable
+  exec swaymsg workspace 1, move workspace to DP-6
+}
+
+profile {
   output eDP-1 enable
 }

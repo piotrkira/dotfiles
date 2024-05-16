@@ -25,7 +25,7 @@ background = "#2b3339"
 foreground = "#d3c6aa"
 
 [font]
-size = 14
+size = 17
 
 [font.bold]
 style = "Bold"
@@ -60,7 +60,7 @@ multiplier = 3
 [window]
 decorations = "full"
 dynamic_padding = false
-opacity = 0.85
+opacity = 1
 
 [window.dimensions]
 columns = 100

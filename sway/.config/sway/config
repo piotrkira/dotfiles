@@ -23,9 +23,9 @@ client.unfocused "#d3c6aa33" "#d3c6aa33" "#d3c6aa33" "#d3c6aa33" "#d3c6aa33"
 output * bg ~/.bg fill
 
 exec swayidle -w \
-        timeout 600 "$lock_command -f" \
-        timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-        before-sleep "$lock_command -f"
+        timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+        timeout 600 $lock_command \
+        before-sleep $lock_command
 
 exec kanshi
 
@@ -144,6 +144,7 @@ bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png; exec w
 
 bindsym $mod+Shift+b exec bookmark-menu
 
+assign [app_id="firefox"] 2
 
 bar {
     swaybar_command waybar

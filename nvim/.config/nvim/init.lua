@@ -25,3 +25,4 @@ vim.diagnostic.config({
     source = 'always',
   }
 })
+vim.g.copilot_workspace_folders = {"~/dev/consumer/"}
