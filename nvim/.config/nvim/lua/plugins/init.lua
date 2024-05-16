@@ -11,11 +11,13 @@ return {
     branch = "harpoon2",
     keys = function()
       return {
-        { ',,', function() require("harpoon"):list():append() end },
+        { ',,', function() require("harpoon"):list():add() end },
         { ',w', function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end },
         { ',a', function() require("harpoon"):list():select(1) end },
         { ',s', function() require("harpoon"):list():select(2) end },
         { ',d', function() require("harpoon"):list():select(3) end },
+        { ',f', function() require("harpoon"):list():select(4) end },
+        { ',g', function() require("harpoon"):list():select(5) end },
       }
     end,
     config = function ()
