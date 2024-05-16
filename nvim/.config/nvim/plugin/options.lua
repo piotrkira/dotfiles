@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 
 local opt = vim.opt
 
+opt.pumheight = 10
 opt.termguicolors = true
 opt.splitright = true
 opt.splitbelow = true

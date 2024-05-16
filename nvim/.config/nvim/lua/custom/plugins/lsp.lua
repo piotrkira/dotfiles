@@ -87,7 +87,7 @@ return {
       },
       formatters = {
         black = {
-          prepend_args = {"--line-length", "120"}
+          prepend_args = { "--line-length", "120" }
         }
       },
     },
@@ -105,8 +105,7 @@ return {
       }
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         callback = function()
-          lint.try_lint()
-          lint.try_lint("codespell")
+          --lint.try_lint()
         end,
       })
     end
