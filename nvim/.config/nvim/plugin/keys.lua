@@ -2,6 +2,12 @@ local set = vim.keymap.set
 
 set('n', '<Space>', '<NOP>')
 
+set('n', '<C-d>', '<C-d>zz')
+set('n', '<C-u>', '<C-u>zz')
+
+set('n', 'n', 'nzz')
+set('n', 'N', 'Nzz')
+
 set('n', '<leader>gd', vim.lsp.buf.definition)
 set('n', '<leader>gD', vim.lsp.buf.declaration)
 set('n', '<leader>gr', vim.lsp.buf.references)
