@@ -12,14 +12,10 @@ return {
       { '<leader>fw', '<cmd>Telescope grep_string<cr>' },
       { '<leader>fq', '<cmd>Telescope quickfix<cr>' },
     },
+    config = function ()
+      local telescope = require('telescope')
+      telescope.load_extension("fzf")
+    end,
   },
   { 'nvim-telescope/telescope-ui-select.nvim' },
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    config = function ()
-       require("telescope").load_extension("fzf")
-    end,
-    lazy = true,
-  }
 }
