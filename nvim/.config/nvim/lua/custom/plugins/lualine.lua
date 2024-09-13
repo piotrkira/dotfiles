@@ -31,5 +31,6 @@ return {
     inactive_winbar = {
       lualine_c = { 'filename' },
     }
-  }
+  },
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
 }

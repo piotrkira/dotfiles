@@ -44,7 +44,9 @@ return {
         })
       }
     end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'romgrk/nvim-treesitter-context',
+    }
   },
-  { 'nvim-treesitter/nvim-treesitter-textobjects' },
-  { 'romgrk/nvim-treesitter-context' },
 }

@@ -52,7 +52,6 @@ return {
     end,
     dependencies = {
       'mfussenegger/nvim-dap-python',
-      'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
     }
   },
@@ -122,4 +121,8 @@ return {
     end,
     lazy = true,
   },
+  dependencies = {
+    'nvim-neotest/nvim-nio',
+    'mfussenegger/nvim-dap',
+  }
 }

@@ -5,6 +5,7 @@ return {
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-fzf-native.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
     },
     keys = {
       { '<C-f>',      '<cmd>Telescope find_files<cr>' },
@@ -17,5 +18,4 @@ return {
       telescope.load_extension("fzf")
     end,
   },
-  { 'nvim-telescope/telescope-ui-select.nvim' },
 }
