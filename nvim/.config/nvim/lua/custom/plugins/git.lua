@@ -4,7 +4,7 @@ return {
     keys = {
       { '<leader>pd', '<cmd>:Gitsigns preview_hunk_inline<cr>' },
       { '<leader>rh', '<cmd>:Gitsigns reset_hunk<cr>' },
-      { '<leader>nh', '<cmd>:Gitsigns prev_hunk<cr>' },
+      { '<leader>ph', '<cmd>:Gitsigns prev_hunk<cr>' },
       { '<leader>nh', '<cmd>:Gitsigns next_hunk<cr>' },
     },
     init = function()

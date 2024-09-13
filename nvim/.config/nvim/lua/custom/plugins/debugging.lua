@@ -27,6 +27,11 @@ return {
   },
   {
     'mfussenegger/nvim-dap',
+    config = function()
+      local python = vim.fn.exepath('python')
+      require("dap-python").setup(python)
+      require("nvim-dap-virtual-text").setup()
+    end,
     keys = function()
       return {
         { '<leader>b',  function() require("dap").toggle_breakpoint() end },
@@ -105,21 +110,6 @@ return {
         dapui.close({})
       end
     end,
-  },
-  {
-    'mfussenegger/nvim-dap-python',
-    config = function()
-      require("dap-python").setup()
-    end,
-    lazy = true,
-  },
-
-  {
-    'theHamsta/nvim-dap-virtual-text',
-    config = function()
-      require("nvim-dap-virtual-text").setup()
-    end,
-    lazy = true,
   },
   dependencies = {
     'nvim-neotest/nvim-nio',

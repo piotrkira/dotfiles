@@ -4,6 +4,7 @@ return {
     config = function ()
       vim.g.copilot_workspace_folders = {"~/dev/consumer/"}
       vim.g.copilot_enabled = false
-    end
+    end,
+    cmd = "Copilot"
   }
 }

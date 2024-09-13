@@ -29,6 +29,7 @@ opt.number = true
 opt.relativenumber = true
 
 opt.signcolumn = 'yes'
+opt.background = 'dark'
 
 vim.cmd('set omnifunc=syntaxcomplete#Complete')
 opt.encoding = 'UTF-8'
