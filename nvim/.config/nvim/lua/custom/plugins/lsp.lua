@@ -84,6 +84,7 @@ return {
         htmldjango = { "djlint" },
         json = { "jq" },
         python = { "isort", "black" },
+        go = { "gofmt" },
       },
       formatters = {
         black = {
