@@ -9,6 +9,7 @@ return {
   {
     'ThePrimeagen/harpoon',
     branch = "harpoon2",
+    lazy = false,
     keys = function()
       return {
         { ',,', function() require("harpoon"):list():add() end },
@@ -20,8 +21,38 @@ return {
         { ',g', function() require("harpoon"):list():select(5) end },
       }
     end,
-    config = function ()
-      require("harpoon"):setup()
+    config = function()
+      local harpoon = require("harpoon")
+      harpoon:setup()
+      local function get_harpoon_statusline()
+        local marks_length = harpoon:list():length()
+        if marks_length == 0 then
+          return ""
+        end
+        local current_file_path = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+        local contents = {}
+        for index = 1, marks_length do
+          local harpoon_file_path = harpoon:list():get(index).value
+          local file_name = vim.fn.fnamemodify(harpoon_file_path, ":t")
+
+          if current_file_path == harpoon_file_path then
+            contents[index] = string.format("%%#Search# %s. %%#Search#%s %%#Statusline#", index, file_name)
+          else
+            contents[index] = string.format("%%#HarpoonNumberInactive# %s. %%#HarpoonInactive#%s ", index, file_name)
+          end
+        end
+
+        return table.concat(contents)
+      end
+
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "User" }, {
+        callback = function(_)
+          local harpoon_files = get_harpoon_statusline()
+          if harpoon_files ~= "" then
+            vim.o.tabline = harpoon_files
+          end
+        end
+      })
     end
   },
   {
@@ -29,13 +60,14 @@ return {
     keys = {
       { '<leader>so', '<cmd>:SymbolsOutline<cr>' }
     },
-    config = function ()
+    config = function()
       require("symbols-outline").setup()
     end,
   },
 
-  { 'kylechui/nvim-surround',
-    config = function ()
+  {
+    'kylechui/nvim-surround',
+    config = function()
       require("nvim-surround").setup({})
     end
   },
