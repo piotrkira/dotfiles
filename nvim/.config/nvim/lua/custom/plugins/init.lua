@@ -2,6 +2,7 @@ return {
   { 'kyazdani42/nvim-web-devicons', lazy=true },
   {
     'windwp/nvim-autopairs',
+    event = 'InsertEnter',
     opts = {
       check_ts = true,
     }
@@ -67,6 +68,7 @@ return {
 
   {
     'kylechui/nvim-surround',
+    event = 'InsertEnter',
     config = function()
       require("nvim-surround").setup({})
     end
@@ -74,6 +76,7 @@ return {
 
   {
     'j-hui/fidget.nvim',
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       progress = {
         display = {

@@ -1,7 +1,11 @@
 return {
-  { 'neovim/nvim-lspconfig' },
+  {
+    'neovim/nvim-lspconfig',
+    event = { "BufReadPre", "BufNewFile" },
+  },
   {
     'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
     opts = function()
       local cmp = require("cmp")
       local select_opts = { behavior = cmp.SelectBehavior.Select }
@@ -52,9 +56,13 @@ return {
       'onsails/lspkind-nvim',
     }
   },
-  { 'L3MON4D3/LuaSnip' },
+  {
+    'L3MON4D3/LuaSnip',
+    event = { "BufReadPre", "BufNewFile" },
+  },
   {
     'ray-x/lsp_signature.nvim',
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       hint_enable = false,
       handler_opts = {
@@ -64,11 +72,13 @@ return {
   },
   {
     'williamboman/mason.nvim',
+    cmd = 'Mason',
     config = true,
     build = ":MasonUpdate",
   },
   {
     'williamboman/mason-lspconfig.nvim',
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       'williamboman/mason.nvim',
     },
@@ -102,6 +112,7 @@ return {
   },
   {
     'mfussenegger/nvim-lint',
+    event = { "BufReadPre", "BufNewFile", "InsertLeave" },
     config = function()
       local lint = require("lint")
       lint.linters_by_ft = {
