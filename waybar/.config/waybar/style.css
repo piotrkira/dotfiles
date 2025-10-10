@@ -9,19 +9,23 @@ button {
   border-radius: 0;
 }
 
-#workspaces button {
+#workspaces button, #tags button.occupied {
   border: none;
   color: #d3c6aa;
   transition-duration: 0;
   box-shadow: none;
 }
 
-#workspaces button.focused {
+#workspaces button.focused, #tags button.focused, #workspaces button.active {
   background: #a7c080;
   color: #2b3339;
 }
 
-#workspaces button:hover {
+#tags button {
+  color: transparent;
+}
+
+#workspaces button:hover, #tags button:hover {
   border: none;
   background: #7fbbb3;
 }

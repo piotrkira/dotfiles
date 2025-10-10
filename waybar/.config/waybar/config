@@ -3,17 +3,16 @@
   "height": 30,
   "spacing": 10,
   "modules-left": [
-    "sway/workspaces",
+    "hyprland/workspaces",
     "sway/scratchpad",
-    "sway/mode",
+    "hyprland/submap",
+    "hyprland/windowcount",
   ],
   "modules-center": [
-    "sway/window"
+    "hyprland/window"
   ],
   "modules-right": [
     "mpd",
-    "custom/rec",
-    "custom/newsboat",
     "backlight",
     "pulseaudio",
     "battery",
@@ -45,6 +44,13 @@
   "memory": {
     "format": "{used}GB",
     "interval": 5
+  },
+  "hyprland/windowcount": {
+    "format": "[{}]",
+    "format-empty": "",
+    "format-windowed": "󰛇",
+    "format-fullscreen": "󰊓{}",
+    "separate-outputs": true
   },
   "custom/newsboat": {
     "format": "󰑫{}",
